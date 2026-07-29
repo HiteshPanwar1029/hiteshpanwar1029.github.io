@@ -19,11 +19,11 @@
 
   <!-- Styles (order matters: tokens → base → animations → sections → responsive).
        ?v= busts stale browser caches whenever styles change — bump on release. -->
-  <link rel="stylesheet" href="css/tokens.css?v=5">
-  <link rel="stylesheet" href="css/base.css?v=5">
-  <link rel="stylesheet" href="css/animations.css?v=5">
-  <link rel="stylesheet" href="css/sections.css?v=5">
-  <link rel="stylesheet" href="css/responsive.css?v=5">
+  <link rel="stylesheet" href="css/tokens.css?v=7">
+  <link rel="stylesheet" href="css/base.css?v=7">
+  <link rel="stylesheet" href="css/animations.css?v=7">
+  <link rel="stylesheet" href="css/sections.css?v=7">
+  <link rel="stylesheet" href="css/responsive.css?v=7">
 </head>
 <body>
 <div class="site">
@@ -115,7 +115,12 @@
         </div>
       </div>
       <div class="loader-status">
-        <span class="loader-status-label">Loading — no cookies involved</span>
+        <span class="loader-status-lines">
+          <span class="loader-status-label">Loading — no cookies involved</span>
+          <!-- Filled in by analytics.js once the count arrives. Stays
+               hidden if the request fails, so nothing shifts on the page. -->
+          <span class="loader-visits" hidden><span class="loader-visits-num"></span> visits counted so far</span>
+        </span>
         <span class="loader-count"><span class="loader-count-num">00</span><span class="loader-count-pct">%</span></span>
       </div>
       <div class="loader-bar"></div>
@@ -503,7 +508,7 @@
         <a class="contact-btn" href="mailto:panwar.hitesh1029@gmail.com">→ panwar.hitesh1029@gmail.com</a>
         <a class="contact-btn" href="https://linkedin.com/in/hitesh-panwar0" target="_blank" rel="noopener">→ LinkedIn</a>
       </div>
-      <p class="contact-made">Built with <span class="accent-text">Claude</span>, supervised by a human. No cookies, no analytics — view source if you'd like to check.</p>
+      <p class="contact-made">Built with <span class="accent-text">Claude</span>, supervised by a human. No cookies and no trackers. Page views are counted, nothing else is — <a href="https://github.com/HiteshPanwar1029/hiteshpanwar1029.github.io/blob/main/js/analytics.js" target="_blank" rel="noopener">here is the code that does it</a>.</p>
     </div>
     <div class="contact-foot">Hitesh Panwar · Dublin, Ireland · 2026</div>
   </section>
@@ -512,7 +517,7 @@
   <aside class="consent" role="note" aria-label="Cookie consent notice" hidden>
     <div class="consent-inner" aria-live="polite">
       <div class="consent-kicker">COOKIE CONSENT — THE HONEST VERSION</div>
-      <p class="consent-text" data-consent="text">This site sets zero cookies and collects zero data — but you deserve one honest banner. Pick an option and I'll show you what that click would have meant on a typical site.</p>
+      <p class="consent-text" data-consent="text">This site sets zero cookies and counts nothing but page views — no identifiers, no profile, nothing stored on your device. But you deserve one honest banner. Pick an option and I'll show you what that click would have meant on a typical site.</p>
       <div class="consent-actions">
         <button class="consent-btn" type="button" data-consent="accept">I consent</button>
         <button class="consent-btn consent-btn--ghost" type="button" data-consent="reject">I don't consent</button>
@@ -522,6 +527,6 @@
 
 </div>
 
-<script type="module" src="js/main.js?v=5"></script>
+<script type="module" src="js/main.js?v=7"></script>
 </body>
 </html>

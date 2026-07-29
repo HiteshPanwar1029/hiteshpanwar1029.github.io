@@ -7,14 +7,15 @@
 
 /* Import specifiers carry ?v= so a stale browser cache can never mix
    old and new modules — bump together with the <script> tag version. */
-import { initLoader } from './loader.js?v=5';
-import { initScroll } from './scroll.js?v=5';
-import { initCursorGlow } from './cursor-glow.js?v=5';
-import { initCaseStudies } from './case-studies.js?v=5';
-import { initNeuralNetwork } from './neural-network.js?v=5';
-import { initCounters } from './counters.js?v=5';
-import { initJourney } from './journey.js?v=5';
-import { initGovernance } from './governance.js?v=5';
+import { initLoader } from './loader.js?v=7';
+import { initScroll } from './scroll.js?v=7';
+import { initCursorGlow } from './cursor-glow.js?v=7';
+import { initCaseStudies } from './case-studies.js?v=7';
+import { initNeuralNetwork } from './neural-network.js?v=7';
+import { initCounters } from './counters.js?v=7';
+import { initJourney } from './journey.js?v=7';
+import { initGovernance } from './governance.js?v=7';
+import { initAnalytics } from './analytics.js?v=7';
 
 function init() {
   initLoader();          // hero loading sequence + character reveal
@@ -25,6 +26,7 @@ function init() {
   initCounters();        // stat count-up
   initJourney();         // trajectory ascent chart + detail panel
   initGovernance();      // risk pyramid, GDPR chips, consent banner
+  initAnalytics();       // pageview count only — see analytics.js
 }
 
 if (document.readyState === 'loading') {

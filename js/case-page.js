@@ -9,10 +9,11 @@
    subpages — content is readable immediately.
    ============================================================ */
 
-import { initScroll } from './scroll.js?v=5';
-import { initCursorGlow } from './cursor-glow.js?v=5';
-import { initCounters } from './counters.js?v=5';
-import { INTRO_SEEN_KEY } from './loader.js?v=5';
+import { initScroll } from './scroll.js?v=7';
+import { initCursorGlow } from './cursor-glow.js?v=7';
+import { initCounters } from './counters.js?v=7';
+import { INTRO_SEEN_KEY } from './loader.js?v=7';
+import { initAnalytics } from './analytics.js?v=7';
 
 function init() {
   // Visiting any subpage counts as having "seen" the site intro, so
@@ -22,6 +23,7 @@ function init() {
   initScroll();
   initCursorGlow();
   initCounters();   // outcome stat count-ups on project pages
+  initAnalytics();  // pageview count only — see analytics.js
 }
 
 if (document.readyState === 'loading') {

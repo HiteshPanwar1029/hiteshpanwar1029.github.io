@@ -117,7 +117,7 @@ const CONSENT_KEY = 'hp-consent-dismissed';
 const CONSENT_OUTCOMES = {
   accept: {
     kicker: 'CONSENT GIVEN — GDPR ART. 4(11) & 6(1)(a)',
-    text: 'On a typical site, that click is a legal act: consent must be freely given, specific and informed (Art. 4(11)), and it becomes the lawful basis for processing (Art. 6(1)(a)) — usually for everything below. Here it triggers nothing, because nothing is there.',
+    text: 'On a typical site, that click is a legal act: consent must be freely given, specific and informed (Art. 4(11)), and it becomes the lawful basis for processing (Art. 6(1)(a)) — usually for everything below. Here it triggers nothing. The one thing this site records is a page-view count, and that runs either way, because it stores nothing on your device and so never needed your consent.',
     chips: ['Analytics cookies — 0 set', 'Advertising IDs — 0 set', 'Profiling — 0 set']
   },
   reject: {

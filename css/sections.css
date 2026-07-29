@@ -229,10 +229,35 @@
   position: absolute; bottom: 36px; left: var(--pad-x); right: var(--pad-x);
   display: flex; align-items: flex-end; justify-content: space-between;
 }
+.loader-status-lines {
+  display: flex; flex-direction: column; gap: 7px;
+  min-width: 0;
+}
 .loader-status-label {
   font-family: var(--font-mono);
   font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
   color: rgba(var(--fg-rgb), 0.45);
+}
+/* The one number this site keeps, shown while it loads. Hidden until
+   analytics.js has a real figure — never a placeholder or a zero. */
+.loader-visits {
+  font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(var(--fg-rgb), 0.3);
+  animation: visitsIn 0.5s ease both;
+}
+.loader-visits[hidden] { display: none; }
+.loader-visits-num {
+  color: var(--accent);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+@keyframes visitsIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loader-visits { animation: none; }
 }
 .loader-count {
   font-family: var(--font-mono);
@@ -835,6 +860,20 @@
   font-family: var(--font-mono);
   font-size: 12px; letter-spacing: 0.06em;
   color: rgba(var(--fg-rgb), 0.5);
+}
+/* The "read what it sends" link — the claim above it is only worth
+   making if the source is one click away. */
+.contact-made a {
+  color: var(--tan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(var(--tan-rgb), 0.4);
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.contact-made a:hover,
+.contact-made a:focus-visible {
+  color: var(--fg);
+  text-decoration-color: rgba(var(--fg-rgb), 0.7);
 }
 .contact-foot {
   position: relative; z-index: 1; margin-top: auto; padding-top: 56px;
