@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vision QA on a Live Production Line — Case Study · Hitesh Panwar</title>
+  <meta name="description" content="Computer vision quality control deployed on running manufacturing lines at Dysmech — defect escapes down 70%, cold-chain spoilage down 80%. Production AI measured against a P&amp;L, not a validation set.">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles (order matters: tokens → base → animations → sections → responsive → case-study) -->
+  <link rel="stylesheet" href="../css/tokens.css?v=9">
+  <link rel="stylesheet" href="../css/base.css?v=9">
+  <link rel="stylesheet" href="../css/animations.css?v=9">
+  <link rel="stylesheet" href="../css/sections.css?v=9">
+  <link rel="stylesheet" href="../css/responsive.css?v=9">
+  <link rel="stylesheet" href="../css/case-study.css?v=9">
+</head>
+<body>
+<div class="site">
+
+  <!-- scroll progress -->
+  <div class="progress" aria-hidden="true"></div>
+  <!-- cursor glow -->
+  <div class="glow" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">Hitesh Panwar<span class="accent-text">.</span></a>
+      <div class="nav-links">
+        <a href="../index.html#work" class="nav-link">← All Case Studies</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- mobile fullscreen menu -->
+  <div class="menu" id="mobile-menu">
+    <a href="../index.html#work" class="menu-link">All Case Studies</a>
+    <a href="../index.html#about" class="menu-link">About</a>
+    <a href="../index.html#contact" class="menu-link">Contact</a>
+  </div>
+
+  <!-- ============ PAGE HEAD ============ -->
+  <header class="study-head" data-section data-label="OVERVIEW">
+    <div class="study-head-grid" aria-hidden="true"></div>
+    <div class="study-head-glow" aria-hidden="true"></div>
+    <div class="study-head-inner">
+      <div class="study-eyebrow reveal-up" data-reveal="up">
+        <a href="../index.html#work">Case Studies</a>
+        <span class="study-eyebrow-sep" aria-hidden="true">/</span>
+        <span>01 · 04</span>
+      </div>
+      <div class="study-tags reveal-up" data-reveal="up" data-delay="80">
+        <span class="chip">Computer Vision</span>
+        <span class="chip">Production ML</span>
+        <span class="chip">Manufacturing</span>
+      </div>
+      <h1 class="study-title reveal-up" data-reveal="up" data-delay="140">Vision QA on a Live Production Line</h1>
+      <p class="study-standfirst reveal-up" data-reveal="up" data-delay="220">
+        <!-- TODO — one or two sentences: the situation, what you built, the outcome.
+             Keep both headline numbers in it. -->
+        Computer vision quality control, deployed on running manufacturing lines — and the difference between a model that scores well and a model that survives a factory floor.
+      </p>
+      <dl class="study-meta reveal-up" data-reveal="up" data-delay="300">
+        <div>
+          <dt>Role</dt>
+          <dd>Data scientist — vision models, end to end</dd>
+        </div>
+        <div>
+          <dt>Duration</dt>
+          <dd>2022–2025 · Dysmech, Pune</dd>
+        </div>
+        <div>
+          <dt>Stack</dt>
+          <dd>Python · OpenCV · <span class="todo">[models / frameworks]</span></dd>
+        </div>
+        <div>
+          <dt>Outcome</dt>
+          <dd>Defect escapes −70% · spoilage −80%</dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <!-- ============ ARTICLE ============ -->
+  <article class="study-body">
+
+    <!-- ─────────────────────────────────────────────────────────────
+         DRAFT SCAFFOLD.
+         Structure, styling and navigation on this page are final. Each
+         section carries a TODO describing exactly what belongs there.
+         Replace the placeholder prose, delete the TODO comments and the
+         .study-draft banner at the foot, and the page is publishable.
+         Every other case study on this site follows this same five-part
+         shape: problem → approach → deployment → results → lessons.
+         ───────────────────────────────────────────────────────────── -->
+
+    <section class="study-section" data-section data-label="THE PROBLEM">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">01</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">The Problem</span>
+        </div>
+        <h2 class="study-h2"><span class="todo">[Headline — what was going wrong before you arrived]</span></h2>
+        <p class="todo-block">
+          <strong>TODO —</strong> Set the scene in business terms, before any technology appears.
+          What was being manufactured, what counted as a defect, and how was quality checked
+          before? Who did the checking, how fast was the line moving, and what did a missed
+          defect actually cost — rework, scrap, a returned shipment, a customer relationship?
+          Name the number if you have it.
+        </p>
+        <p class="todo-block">
+          <strong>TODO —</strong> Then the second half: the cold chain. What was spoiling, where
+          in the chain, and how was it detected (or not)? Say plainly whether these were one
+          system or two — the reader will assume one unless told otherwise.
+        </p>
+      </div>
+    </section>
+
+    <section class="study-section" data-section data-label="APPROACH">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">02</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">The Approach</span>
+        </div>
+        <h2 class="study-h2"><span class="todo">[Headline — the one decision that shaped everything else]</span></h2>
+        <p class="todo-block">
+          <strong>TODO —</strong> How you framed it as a modelling problem: classification,
+          detection, segmentation, anomaly detection? Why that and not the obvious alternative?
+          This is the paragraph that shows judgement rather than tooling.
+        </p>
+        <ul class="study-list">
+          <li><strong>Data.</strong> <span class="todo">TODO — where the images came from, how many, how they were labelled and by whom. Class imbalance is almost always the story: defects are rare by definition. Say how you handled it.</span></li>
+          <li><strong>Model.</strong> <span class="todo">TODO — architecture and why. If it was deliberately simple, say so and say why: latency, an edge device, no GPU on site, maintainability by the team after you.</span></li>
+          <li><strong>Validation.</strong> <span class="todo">TODO — what you measured. Precision and recall are not symmetric here: a false negative ships a defect to a customer, a false positive stops a line. State which you optimised for and what that cost.</span></li>
+          <li><strong>Constraints.</strong> <span class="todo">TODO — the real ones. Lighting, camera placement, line speed, dust, vibration, a plant manager who did not want a camera on their line.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="study-section" data-section data-label="DEPLOYMENT">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">03</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">Getting It Onto the Line</span>
+        </div>
+        <h2 class="study-h2"><span class="todo">[Headline — the gap between a working model and a working system]</span></h2>
+        <p class="todo-block">
+          <strong>TODO —</strong> This is the section most portfolio case studies skip, and the
+          one that proves production experience. Where did the model run — edge box, plant
+          server, cloud? How did it get its images, and where did its verdicts go: a screen, a
+          klaxon, a reject actuator, a report? What happened when it was unsure? Was there a
+          human in the loop, and did they trust it?
+        </p>
+        <div class="study-quote">
+          <p><span class="todo">"[TODO — a line capturing the hardest non-technical part. Operator trust, a night shift that switched it off, a plant manager who wanted a number before signing off.]"</span></p>
+        </div>
+        <p class="todo-block">
+          <strong>TODO —</strong> Rollout: one line first, or all of them? How long did it take,
+          what broke in week one, and what did you change because of it?
+        </p>
+      </div>
+    </section>
+
+    <section class="study-section" data-section data-label="RESULTS">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">04</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">What Changed</span>
+        </div>
+        <h2 class="study-h2">Defect escapes down 70%. Cold-chain spoilage down 80%.</h2>
+        <p class="todo-block">
+          <strong>TODO — the most important paragraph on this page.</strong> Both numbers need a
+          baseline, a measurement window and a method, or a sceptical interviewer will discount
+          them. Down 70% <em>from what, over what period, measured how?</em> Was it your
+          measurement or the plant's own QA reporting? Independent verification is worth saying
+          out loud.
+        </p>
+        <ul class="study-list">
+          <li><strong>Defect escapes −70%.</strong> <span class="todo">TODO — baseline rate → new rate, over what window.</span></li>
+          <li><strong>Cold-chain spoilage −80%.</strong> <span class="todo">TODO — same: baseline, window, method.</span></li>
+          <li><strong>Business impact.</strong> <span class="todo">TODO — the currency figure, hours saved, or throughput change, if you are free to share it. If you are not, say so rather than leaving a gap.</span></li>
+        </ul>
+        <p class="todo-block">
+          <strong>TODO —</strong> Also worth a line: what <em>didn't</em> improve, or what the system
+          still can't catch. Naming a limitation makes every other number in this section more
+          credible, not less.
+        </p>
+      </div>
+    </section>
+
+    <section class="study-section" data-section data-label="LESSONS">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">05</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">What It Taught Me</span>
+        </div>
+        <h2 class="study-h2">A wrong model isn't a research finding. It's an invoice.</h2>
+        <p class="todo-block">
+          <strong>TODO —</strong> Tie it forward. This is the experience that separates you from
+          candidates who have only built AI in notebooks: you have watched a model meet a
+          physical process with money attached. Say what that changed about how you scope AI
+          work now — the questions you ask first, the things you refuse to promise.
+        </p>
+        <div class="study-callout">
+          <div class="study-callout-label">Key Takeaways</div>
+          <ul class="study-list">
+            <li><strong><span class="todo">[Takeaway 1]</span></strong> <span class="todo">TODO — something about data or problem framing.</span></li>
+            <li><strong><span class="todo">[Takeaway 2]</span></strong> <span class="todo">TODO — something about deployment, operators, or trust.</span></li>
+            <li><strong><span class="todo">[Takeaway 3]</span></strong> <span class="todo">TODO — something about measurement and proving value.</span></li>
+          </ul>
+        </div>
+        <div class="study-note">
+          <p><span class="todo">TODO — the standard closing note: role, employer, period, and a line on what is generalised or withheld for commercial confidentiality. Every other case study on this site ends with one.</span></p>
+        </div>
+        <div class="study-draft" role="note">
+          <strong>Draft scaffold.</strong> Structure and styling are final; the prose is not. Fill in
+          the TODO blocks above, then delete this banner — the <code>.todo</code> and
+          <code>.study-draft</code> styles can stay in the stylesheet unused.
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <!-- ============ PAGER ============ -->
+  <footer class="study-pager">
+    <div class="study-pager-inner">
+      <a class="study-pager-link" href="mechahitler.html">
+        <span class="study-pager-dir">← Last Case Study</span>
+        <span class="study-pager-title">The MechaHitler Problem</span>
+      </a>
+      <a class="study-pager-link is-next" href="evaluating-models.html">
+        <span class="study-pager-dir">Next Case Study →</span>
+        <span class="study-pager-title">Evaluating What Models Don't Say</span>
+      </a>
+      <div class="study-pager-all">
+        <a href="../index.html#work">↖ Back to all case studies</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script type="module" src="../js/case-page.js?v=9"></script>
+</body>
+</html>

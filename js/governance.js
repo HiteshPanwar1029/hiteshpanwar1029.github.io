@@ -24,7 +24,7 @@ const TIERS = [
     title: 'Where governance becomes engineering.',
     what: 'CV screening, credit scoring, exam proctoring, critical infrastructure. Permitted — but only with a full control stack in place.',
     chips: ['Risk management system', 'Data governance', 'Human oversight', 'Logging & conformity'],
-    take: 'This is the tier I want to work in. It’s where the Act stops being policy and becomes an engineering problem.'
+    take: 'This is the tier most business-critical AI lands in. It’s where the Act stops being policy and becomes an engineering problem — which is exactly where I work.'
   },
   {
     kicker: 'TIER · LIMITED RISK — ARTICLE 50',

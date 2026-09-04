@@ -1,4 +1,4 @@
-# Hitesh Panwar — AI Governance Portfolio
+# Hitesh Panwar — AI & Data Portfolio
 
 A single-page portfolio site. Pure HTML, CSS, and vanilla JavaScript
 (ES modules) — **no frameworks, no build tools, no dependencies.**
@@ -27,6 +27,8 @@ engine — it's just static files a browser can serve directly.
 │   ├── case-studies.js   # horizontal drag-to-scroll (desktop) + touch fallback
 │   ├── neural-network.js # skill → output diagram, signal pulses, mobile fallback
 │   └── counters.js       # stat count-up animation
+├── case-studies/         # long-form work write-ups (4)
+├── projects/             # per-project deep dives (4)
 ├── assets/               # favicon + room for images/icons
 └── README.md
 ```
@@ -38,10 +40,27 @@ file exports a single `init…()` function; `main.js` calls them on
 
 ### Editing the neural network
 
-The skill → work mapping lives in one well-commented object,
-`SKILL_OUTPUT_MAP`, at the top of `js/neural-network.js`. Adding a skill
-or an output is a documented three-step change (markup + map row, and for
-a new output one extra `.nn-idle-*` rule in `animations.css`).
+The diagram is **5 skills → 4 labelled process stages → 4 outputs**. The
+hidden layer carries `SCOPE / BUILD / MEASURE / GOVERN` and is fully
+connected by design — it is not part of the map. The skill → work mapping
+lives in one well-commented object, `SKILL_OUTPUT_MAP`, at the top of
+`js/neural-network.js`.
+
+Adding an output is a four-part change: the `<circle>` + `<text>` in
+`index.html`, one `<line data-ho>` **per hidden node**, a matching
+`.nn-idle-N` rule in `animations.css`, and a mobile `[data-mout]` button.
+Adding a skill is the same minus the lines being per-output.
+
+Two constraints worth knowing before you retitle anything:
+
+- **Label length.** `.nn-svg` has `overflow: visible` and labels are 13
+  user-units of mono, so width ≈ `chars × 8` units in a 1000-unit
+  viewBox. Roughly **27 characters max**, including the `S1 · ` prefix or
+  ` · W1` suffix. Output labels are short *names*, not case-study titles.
+- **Governance has no output of its own.** S5 feeds three of the four
+  outputs. That is deliberate — it argues visually that governance is a
+  property of the work rather than a separate deliverable. Don't "fix" it
+  by giving it a dedicated node.
 
 ## Run it locally
 
@@ -103,3 +122,55 @@ No build step or GitHub Action is required — Pages serves the files as-is.
   site and can be deleted or moved out of the repo once you're happy with
   the port.
 - The favicon in `assets/favicon.svg` is a placeholder — swap in your own.
+
+
+## Positioning
+
+The site presents **AI analyst / consultant / builder / data analytics**
+work. AI governance is kept deliberately — as one capability among
+several (hero role strip, marquee, a Skills aside, one service card, and
+the interactive EU AI Act pyramid) rather than as the site's thesis.
+When editing copy, keep that balance: governance is a differentiator that
+makes the builds defensible, not the headline.
+
+Section order on the home page:
+
+    hero → about → career → neural network → work → services
+         → skills → projects → governance → contact
+
+## Editing the content data
+
+Most of the page's *words* live in HTML, but three interactive sections
+are driven by data arrays in JS — edit those, not the markup:
+
+| Section | Data lives in |
+|---|---|
+| Career chart | `PHASES` at the top of `js/journey.js` |
+| ↳ | Four phases. The chart line continues past the last point as a dashed `.jc-open` segment — the trajectory is deliberately open-ended, so adding a phase means adding an SVG point *and* moving that segment's `x1/y1`. |
+| Neural network | `SKILL_OUTPUT_MAP` inside `js/neural-network.js` |
+| EU AI Act pyramid | `TIERS` at the top of `js/governance.js` |
+
+## Draft pages
+
+`case-studies/vision-qa.html` is a **draft scaffold**: final structure and
+styling, placeholder prose. Its TODO blocks render in accent blue via the
+`.todo` / `.todo-block` / `.study-draft` rules at the foot of
+`css/case-study.css`, so an unfilled placeholder cannot be published by
+accident. Fill in the prose, delete the `.study-draft` banner, and the
+page is done.
+
+## Cache busting
+
+Every `<link>` and `<script>` carries a `?v=N`. Bump N in **all** HTML
+files together whenever CSS or JS changes, or returning visitors get a
+stale mix. Currently at `v=8`.
+
+**The easy mistake:** bumping the `<script src="js/main.js?v=N">` tag is
+*not* enough. ES module import specifiers are separate cache entries, so
+the `?v=` inside `js/main.js` and `js/case-page.js` must be bumped too —
+otherwise the browser serves new HTML against old modules and the page
+half-works in ways that look like logic bugs. Grep before release:
+
+```bash
+grep -rn "v=[0-9]" --include=*.html --include=*.js .
+```

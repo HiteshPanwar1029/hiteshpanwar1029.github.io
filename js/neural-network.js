@@ -1,7 +1,8 @@
 /* ============================================================
    neural-network.js — the interactive skill → output diagram.
 
-   Desktop: an SVG of 5 inputs (skills) → 4 hidden → 3 outputs (work).
+   Desktop: an SVG of 5 inputs (skills) → 4 labelled process
+   stages → 4 outputs (work).
    Hovering / focusing / activating an input highlights the path it
    feeds and fires signal pulses along the edges. Output nodes are
    links that scroll to the relevant section.
@@ -25,35 +26,49 @@ const C_FG = '#F0EDE6';
 
 export function initNeuralNetwork() {
   /* ============================================================
-     SKILL → OUTPUT MAP  —  EDIT HERE to rewire skills to work.
+     SKILL -> OUTPUT MAP  —  EDIT HERE to rewire skills to work.
      ------------------------------------------------------------
-     Keys   = input/skill index, as a string  ("0"–"4" → S1–S5)
-     Values = array of output indices it feeds ("0"–"2" → W1–W3)
+     Keys   = input/skill index, as a string  ("0"-"4" -> S1-S5)
+     Values = array of output indices it feeds ("0"-"3" -> W1-W4)
 
        inputs (data-i)                outputs (data-o, data-target)
-       "0" EU AI Act & Regulation      "0" MechaHitler Case Study  → #work
-       "1" GenAI Evaluation            "1" AI Compliance App       → #projects
-       "2" Data Science / Python       "2" Resume Dashboard        → #projects
-       "3" AI Ethics
-       "4" Strategic Analysis
+       "0" Data & Analytics            "0" Production Vision QA  -> #work
+       "1" GenAI & LLM Builds          "1" JobPilot              -> #projects
+       "2" Model Evaluation            "2" SlideNavigator AI     -> #projects
+       "3" Business & Strategy         "3" Outlier / RWS         -> #work
+       "4" AI Governance & Risk
+
+     Between them sit four LABELLED hidden nodes — SCOPE, BUILD,
+     MEASURE, GOVERN — so the diagram claims something rather than
+     just decorating: every skill reaches every output through the
+     same four steps. The hidden layer is not part of this map; it
+     is fully connected by design.
+
+     Two deliberate choices in the map:
+       • AI Governance (S5) has no output of its own. It feeds three
+         of the four, which is the point: governance is a property of
+         the work, not a separate deliverable.
+       • Outlier / RWS (W4) is the one output that is professional
+         engagement rather than something self-built, so the right-hand
+         column mixes employer work with self-directed work.
 
      ADD A SKILL:  add  <circle class="nn-input nn-idle-N" data-nn="in"
-       data-i="5" … tabindex="0" role="button" aria-label="…">  plus a
-       <text data-inlabel data-i="5" …>  in index.html, then add a
-       "5": ["…"]  row below.
+       data-i="5" ... tabindex="0" role="button" aria-label="...">  plus a
+       <text data-inlabel data-i="5" ...>  in index.html, then add a
+       "5": ["..."]  row below.
      ADD AN OUTPUT: add a <circle class="nn-output nn-idle-N"
-       data-nn="out" data-o="3" data-target="#…" …> + label in
+       data-nn="out" data-o="4" data-target="#..." ...> + label in
        index.html, add a matching .nn-idle-N rule in animations.css,
-       and reference "3" from the skill rows below.
+       add one <line data-ho> per hidden node, and reference "4" from
+       the skill rows below.
      ============================================================ */
   const SKILL_OUTPUT_MAP = {
-    '0': ['1', '0'],
-    '1': ['0', '2'],
-    '2': ['2', '1'],
-    '3': ['0'],
-    '4': ['1', '0']
+    '0': ['0', '1'],           // Data & Analytics    -> Vision QA, JobPilot
+    '1': ['1', '2'],           // GenAI & LLM Builds  -> JobPilot, SlideNavigator
+    '2': ['0', '3'],           // Model Evaluation    -> Vision QA, Outlier/RWS
+    '3': ['0', '3'],           // Business & Strategy -> Vision QA, Outlier/RWS
+    '4': ['0', '1', '3']       // AI Governance       -> Vision QA, JobPilot, Outlier/RWS
   };
-
   const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Mobile fallback buttons exist regardless of viewport — wire them up.

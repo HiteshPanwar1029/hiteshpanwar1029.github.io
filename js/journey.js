@@ -1,15 +1,18 @@
 /* ============================================================
    journey.js — "Career, plotted."
 
-   The Trajectory section is an SVG ascent chart: six milestones
-   rising from B.Tech (2019) to AI Governance & Risk (now).
+   The Trajectory section is an SVG ascent chart: four milestones
+   rising from B.Tech (2019) to building and practice (now). The
+   line deliberately continues past the last point as a dashed,
+   unlabelled segment — the trajectory is open-ended, so there is
+   no "destination" card to select.
 
      • the line draws itself when the chart scrolls into view
        (stroke-dashoffset transition, .is-drawn on the <svg>);
      • each point (and each mobile list item) selects a phase,
        updating the detail panel below;
-     • default selection is the destination — the section's
-       resting message is "ready now".
+     • default selection is the last phase — the section's
+       resting message is what I am doing right now.
 
    prefers-reduced-motion: chart appears fully drawn, no pulse.
    ============================================================ */
@@ -18,38 +21,26 @@ const PHASES = [
   {
     kicker: 'PHASE 01 · FOUNDATION — 2019–2023',
     title: 'B.Tech Computer Science — GLA University',
-    desc: 'Data structures, computer vision, AI for IIoT. This is where I learned how these systems are built — useful now that my job is asking awkward questions about them.',
+    desc: 'Data structures, computer vision, AI for IIoT. Four years learning how these systems are actually built — which is why I can still open the model instead of just the slide deck about it.',
     carry: 'Engineering fundamentals'
   },
   {
-    kicker: 'PHASE 02 · PROOF — 2022–2025',
+    kicker: 'PHASE 02 · APPLICATION — 2023–2025',
     title: 'Production data science — Dysmech, Pune',
-    desc: 'Computer vision QA on real production lines: defect escapes down 70%, cold-chain spoilage down 80%. Also where I learned that a wrong model isn’t a research finding — it’s an invoice.',
-    carry: 'Production experience'
+    desc: 'Where the theory met a factory floor. Computer vision quality control on live production lines: defect escapes down 70%, cold-chain spoilage down 80%. Models judged against a P&L rather than a validation set — and the lesson that a wrong model isn’t a research finding, it’s an invoice.',
+    carry: 'Shipped AI, measured in business numbers'
   },
   {
-    kicker: 'PHASE 03 · PERSPECTIVE — 2025–2026',
-    title: 'MSc Management — UCD Smurfit, Dublin',
-    desc: 'Corporate finance, global strategy, business analytics. Mostly: learning to explain technical risk to the people who own the budget.',
-    carry: 'Business fluency'
+    kicker: 'PHASE 03 · EXPANDING THE KNOWLEDGE BASE — 2025–2026',
+    title: 'MSc Management, UCD Smurfit — and the rulebook',
+    desc: 'Deliberately widening the base rather than going deeper into one skill. Corporate finance, global strategy and business analytics at Smurfit for the commercial half of AI work; alongside it, studying the law that now governs it — the EU AI Act, GDPR and DPIA practice, working through the IAPP AIGP and CIPP/E material.',
+    carry: 'Business case + the regulatory picture'
   },
   {
-    kicker: 'PHASE 04 · PRACTICE — 2025–PRESENT',
-    title: 'GenAI evaluation — Outlier & RWS',
-    desc: 'I review frontier model outputs for accuracy, bias and reasoning quality — daily, against structured rubrics. Governance work at the model level, not the policy level.',
-    carry: 'Hands-on model evaluation'
-  },
-  {
-    kicker: 'PHASE 05 · CREDENTIAL — IN PROGRESS',
-    title: 'AIGP & CIPP/E — IAPP',
-    desc: 'IAPP’s AI Governance and EU privacy certifications, both in progress. I built myself a study app to drill for both (see Projects) — either dedication or a very elaborate way to avoid flashcards.',
-    carry: 'GDPR depth'
-  },
-  {
-    kicker: 'PHASE 06 · NEXT — LOOKING FOR OPPORTUNITIES',
-    title: 'AI Governance & Risk — Dublin / EU',
-    desc: 'The role I’m working towards: engineering to understand the systems, production experience to know what breaks, management training for the business side, AIGP and CIPP/E for the law. Currently looking for opportunities.',
-    carry: 'Everything above',
+    kicker: 'PHASE 04 · BUILDING & PRACTICE — 2026–PRESENT',
+    title: 'Shipping systems, and evaluating them daily',
+    desc: 'Everything in Projects: an agentic job-search platform with a scheduled pipeline behind it, a voice-driven presentation navigator, two offline-first learning apps. Built and run by me, not prototyped and abandoned. Running in parallel since late 2025: reviewing frontier model outputs for accuracy, bias and reasoning quality — which is how I know where LLMs actually break.',
+    carry: 'Delivery, and judgement about what to trust',
     cta: true
   }
 ];
@@ -116,6 +107,6 @@ export function initJourney() {
     });
   });
 
-  // Default: the destination.
+  // Default: the last phase — what I am doing now.
   select(PHASES.length - 1);
 }

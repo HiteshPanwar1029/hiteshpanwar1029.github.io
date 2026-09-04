@@ -302,3 +302,37 @@
   .study-wrap p, .study-list li { font-size: 16px; }
   .study-pager { padding: 46px 16px 60px; }
 }
+
+
+/* ============================================================
+   Draft scaffolding — used only by case studies still being
+   written (currently vision-qa.html). Deliberately loud: an
+   unfilled placeholder should be impossible to publish by
+   accident. Delete the markup when the prose lands; these rules
+   can stay here unused.
+   ============================================================ */
+.todo {
+  color: var(--accent);
+  background: rgba(var(--signal-rgb), 0.1);
+  border-bottom: 1px dashed rgba(var(--signal-rgb), 0.55);
+  padding: 0 3px;
+}
+.todo-block {
+  border-left: 2px dashed rgba(var(--signal-rgb), 0.5);
+  padding-left: 16px;
+  color: rgba(var(--fg-rgb), 0.62);
+}
+.todo-block strong { color: var(--accent); }
+.study-draft {
+  margin-top: 40px; padding: 18px 22px;
+  border: 1px dashed var(--accent);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 12px; line-height: 1.7; letter-spacing: 0.03em;
+  color: rgba(var(--fg-rgb), 0.7);
+}
+.study-draft strong { color: var(--accent); }
+.study-draft code {
+  font-family: var(--font-mono);
+  color: var(--tan);
+}

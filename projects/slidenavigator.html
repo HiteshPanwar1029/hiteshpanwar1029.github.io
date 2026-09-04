@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SlideNavigator AI — Project · Hitesh Panwar</title>
+  <meta name="description" content="SlideNavigator AI — a PowerPoint add-in that advances slides from live speech. Real-time speech recognition, TF-IDF relevance matching, and a two-runtime Office.js + C# COM architecture.">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles (order matters: tokens → base → animations → sections → responsive → case-study → project) -->
+  <link rel="stylesheet" href="../css/tokens.css?v=9">
+  <link rel="stylesheet" href="../css/base.css?v=9">
+  <link rel="stylesheet" href="../css/animations.css?v=9">
+  <link rel="stylesheet" href="../css/sections.css?v=9">
+  <link rel="stylesheet" href="../css/responsive.css?v=9">
+  <link rel="stylesheet" href="../css/case-study.css?v=9">
+  <link rel="stylesheet" href="../css/project-page.css?v=9">
+</head>
+<body>
+<div class="site">
+
+  <!-- scroll progress -->
+  <div class="progress" aria-hidden="true"></div>
+  <!-- cursor glow -->
+  <div class="glow" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <nav class="nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">Hitesh Panwar<span class="accent-text">.</span></a>
+      <div class="nav-links">
+        <a href="../index.html#projects" class="nav-link">← All Projects</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+      </div>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- mobile fullscreen menu -->
+  <div class="menu" id="mobile-menu">
+    <a href="../index.html#projects" class="menu-link">All Projects</a>
+    <a href="../index.html#about" class="menu-link">About</a>
+    <a href="../index.html#contact" class="menu-link">Contact</a>
+  </div>
+
+  <!-- ============ PAGE HEAD ============ -->
+  <header class="study-head" data-section data-label="OVERVIEW">
+    <div class="study-head-grid" aria-hidden="true"></div>
+    <div class="study-head-glow" aria-hidden="true"></div>
+    <div class="study-head-inner">
+      <div class="study-eyebrow reveal-up" data-reveal="up">
+        <a href="../index.html#projects">Projects</a>
+        <span class="study-eyebrow-sep" aria-hidden="true">/</span>
+        <span>02 · 04</span>
+      </div>
+      <div class="study-tags reveal-up" data-reveal="up" data-delay="80">
+        <span class="chip">Speech &amp; NLP</span>
+        <span class="chip">Office Add-in</span>
+        <span class="chip">Real-Time Systems</span>
+      </div>
+      <h1 class="study-title reveal-up" data-reveal="up" data-delay="140">SlideNavigator AI — the deck follows the speaker.</h1>
+      <p class="study-standfirst reveal-up" data-reveal="up" data-delay="220">A PowerPoint add-in that advances your slides from what you are actually saying. No clicker, no remote, no glancing down. Speak naturally and the deck keeps up.</p>
+      <dl class="study-meta reveal-up" data-reveal="up" data-delay="300">
+        <div>
+          <dt>Role</dt>
+          <dd>Architecture, NLP &amp; build</dd>
+        </div>
+        <div>
+          <dt>Stack</dt>
+          <dd>React / TypeScript · Office.js · C# VSTO bridge</dd>
+        </div>
+        <div>
+          <dt>Latency</dt>
+          <dd>&lt;10ms match, on interim speech results</dd>
+        </div>
+        <div>
+          <dt>Status</dt>
+          <dd>V1 shipped · V2 in build</dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <!-- ============ ARTICLE ============ -->
+  <article class="study-body">
+
+    <section class="study-section" data-section data-label="THE PROBLEM">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">01</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">The Problem</span>
+        </div>
+        <h2 class="study-h2">Every presenter is also a slide operator, and it shows.</h2>
+        <p>Watch anyone present and you will see the same tax being paid: a hand on a clicker, a glance down to check what is next, a lost half-second reconnecting with the room. The speaker's attention is split between the argument they are making and the machinery displaying it.</p>
+        <p>The obvious fix — <strong>let the deck listen</strong> — sounds trivial and is not. It requires deciding, several times a second, whether the words currently coming out of someone's mouth mean "move on" — and being confident enough to act, but not so confident that a passing mention of a later topic throws the presentation across the room.</p>
+      </div>
+    </section>
+
+    <section class="study-section" data-section data-label="ARCHITECTURE">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">02</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">Architecture</span>
+        </div>
+        <h2 class="study-h2">The obvious architecture is impossible. That was the finding.</h2>
+        <p>Office.js — Microsoft's supported way to extend PowerPoint — <strong>cannot control the slideshow engine while PowerPoint is in fullscreen presentation mode.</strong> That is a confirmed platform limitation, not a bug to be worked around, and it invalidates the single-component design anyone would reach for first.</p>
+        <p>So the system runs as two components in two different runtimes, and stays that way on purpose:</p>
+        <ul class="study-list">
+          <li><strong>An Office.js add-in</strong> (React / TypeScript) owning speech capture, the NLP matcher, the UI and command handling — everything that lives in a browser runtime.</li>
+          <li><strong>A C# VSTO COM bridge</strong> exposing a local HTTP API, which is the only thing on the machine able to drive fullscreen navigation.</li>
+        </ul>
+        <p>They cannot be merged — browser and COM/.NET are not the same world — so the design leans into it with a <strong>graceful fallback chain</strong>: try the VSTO bridge, fall back to <code>goToByIdAsync</code>, fall back again to <code>setSelectedSlides</code>. The presenter never sees which path fired; they only see the slide change.</p>
+        <div class="study-quote">
+          <p>"Four hours of documentation to establish that the clean architecture was impossible, then a fortnight making the ugly one feel invisible. That ratio is normal, and worth budgeting for."</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="study-section" data-section data-label="THE MATCHER">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">03</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">Speech → Slide</span>
+        </div>
+        <h2 class="study-h2">TF-IDF, a rolling window, and two guards against false confidence.</h2>
+        <p>Live speech is scored against every slide's text with <strong>TF-IDF and cosine similarity</strong> — stop-words filtered, tokens stemmed. It runs in under ten milliseconds and costs nothing to operate, which matters when the decision has to be re-made continuously for forty minutes.</p>
+        <p>Three design decisions did most of the work:</p>
+        <ul class="study-list">
+          <li><strong>A 30-word rolling window.</strong> Without it, accumulated transcript text drags matches toward whichever slide has the most words in common with the last five minutes. Bounding the context was the single highest-impact fix in V1.</li>
+          <li><strong>Score interim results, not just final ones.</strong> Waiting for complete sentences produced navigation that was correct but visibly late. Interim results made it feel real-time — with only final results allowed to reset the match counter, so one ambiguous fragment can't break a valid streak.</li>
+          <li><strong>Two guards, both necessary.</strong> A consecutive-match requirement kills single-frame false positives; a cooldown between navigations stops the deck oscillating between two similar slides. Neither alone is sufficient — that took experimentation to establish.</li>
+        </ul>
+        <p>The known weakness is honest and documented: TF-IDF matches <em>words</em>, not <em>meaning</em>. Say "let's talk about revenue" over a slide titled "Q3 Financial Results" and it has nothing to work with. That single failure mode is the entire motivation for V2's semantic matching upgrade.</p>
+      </div>
+    </section>
+
+    <section class="study-section" data-section data-label="HARD PARTS">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">04</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">The Hard Parts</span>
+        </div>
+        <h2 class="study-h2">Four rejected approaches before one worked.</h2>
+        <p>The zoom feature — magnifying part of a slide on command — looked like a small addition and consumed the most engineering of any single feature. Four approaches were built and abandoned:</p>
+        <ul class="study-list">
+          <li><strong><code>GotoClick(x, y)</code></strong> — wrong API entirely. It takes an animation index, not coordinates.</li>
+          <li><strong>Simulated keystrokes</strong> — only <em>continues</em> an existing zoom; it cannot start one.</li>
+          <li><strong>The Windows Magnification API</strong> — magnifies the entire screen, window chrome included. Correct behaviour, unusable result.</li>
+          <li><strong>P/Invoke toolbar automation</strong> — worked on one machine, then broke on the next resolution and DPI combination.</li>
+        </ul>
+        <p>What finally worked was a change of category rather than a better hack: <strong>a Morph transition between hidden duplicate slides.</strong> Entirely inside PowerPoint's own rendering engine, so it looks professional and behaves identically on every machine.</p>
+        <div class="study-callout">
+          <div class="study-callout-label">The Pattern</div>
+          <p>Three of the four failures were attempts to make the host application do something it does not expose. The solution was to stop fighting the platform and express the feature in primitives it already had. That generalises well beyond PowerPoint.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="study-section" data-section data-label="TECH">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">05</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">Tech &amp; Skills</span>
+        </div>
+        <h2 class="study-h2">What it's made of — and what it made of me.</h2>
+        <div class="proj-tech">
+          <div>
+            <div class="proj-tech-col-label">Technology</div>
+            <div class="proj-tech-chips">
+              <span class="chip">React &amp; TypeScript</span>
+              <span class="chip">Office.js add-in</span>
+              <span class="chip">C# VSTO / COM bridge</span>
+              <span class="chip">Web Speech API</span>
+              <span class="chip">TF-IDF &amp; cosine similarity</span>
+              <span class="chip">Local HTTP API</span>
+            </div>
+          </div>
+          <div>
+            <div class="proj-tech-col-label">Skills Exercised</div>
+            <div class="proj-tech-chips">
+              <span class="chip">Real-time system design</span>
+              <span class="chip">NLP &amp; information retrieval</span>
+              <span class="chip">Cross-runtime architecture</span>
+              <span class="chip">Latency vs. accuracy trade-offs</span>
+              <span class="chip">Platform constraint analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="study-section" data-section data-label="LEARNINGS">
+      <div class="study-wrap">
+        <div class="study-kicker reveal-up" data-reveal="up">
+          <span class="study-kicker-num">06</span>
+          <span class="study-kicker-rule" aria-hidden="true"></span>
+          <span class="study-kicker-label">What I Learned</span>
+        </div>
+        <h2 class="study-h2">In a real-time system, the guards are the product.</h2>
+        <div class="study-callout">
+          <div class="study-callout-label">Key Takeaways</div>
+          <ul class="study-list">
+            <li><strong>Bound your context before you improve your model.</strong> The 30-word window beat every matcher tweak that preceded it. Most accuracy problems in live systems are context problems wearing a model problem's clothes.</li>
+            <li><strong>Latency is a feature with a threshold.</strong> Correct-but-late navigation read to users as broken. Moving to interim results changed nothing about accuracy and everything about whether people would use it.</li>
+            <li><strong>Know the platform's real limits early.</strong> The two-runtime architecture wasn't a preference; it was the only shape that worked. An afternoon spent proving that saved a rewrite.</li>
+            <li><strong>Name the failure mode you can't fix yet.</strong> Writing down that TF-IDF cannot handle paraphrase turned a vague dissatisfaction into V2's single clearest requirement.</li>
+          </ul>
+        </div>
+        <div class="study-note">
+          <p>V2 in progress: replacing keyword matching with semantic retrieval so paraphrased speech resolves to the right slide — the one failure mode V1 documented and could not solve within its architecture.</p>
+        </div>
+      </div>
+    </section>
+
+  </article>
+
+  <!-- ============ PAGER ============ -->
+  <footer class="study-pager">
+    <div class="study-pager-inner">
+      <a class="study-pager-link" href="jobpilot.html">
+        <span class="study-pager-dir">← Previous Project</span>
+        <span class="study-pager-title">JobPilot</span>
+      </a>
+      <a class="study-pager-link is-next" href="cippe-companion.html">
+        <span class="study-pager-dir">Next Project →</span>
+        <span class="study-pager-title">CIPP/E Study Companion</span>
+      </a>
+      <div class="study-pager-all">
+        <a href="../index.html#projects">↖ Back to all projects</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script type="module" src="../js/case-page.js?v=9"></script>
+</body>
+</html>

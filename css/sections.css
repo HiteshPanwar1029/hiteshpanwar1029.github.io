@@ -165,6 +165,26 @@
   line-height: 1.28; letter-spacing: -0.01em;
   text-wrap: pretty; color: var(--fg);
 }
+/* Role strip — the full set of hats under the anchor line. Monospace and
+   small on purpose: it carries keywords without competing with the
+   positioning statement above it. */
+.hero-roles {
+  display: flex; flex-wrap: wrap; gap: 8px 0;
+  list-style: none; margin: 24px 0 0; padding: 0 0 0 25px;
+}
+.hero-role {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 11.5px; letter-spacing: 0.13em; text-transform: uppercase;
+  color: rgba(var(--fg-rgb), 0.68);
+  padding: 0 14px;
+}
+.hero-role:first-child { padding-left: 0; }
+.hero-role + .hero-role::before {
+  content: ""; position: absolute; left: 0; top: 50%;
+  width: 3px; height: 3px; margin-top: -1.5px; border-radius: 50%;
+  background: var(--accent);
+}
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
 .hero-btn {
   font-family: var(--font-mono);
@@ -348,11 +368,30 @@
   stroke: var(--accent); stroke-width: 2.5;
   stroke-linecap: round; stroke-linejoin: round;
   filter: drop-shadow(0 0 6px rgba(var(--signal-rgb), 0.55));
-  stroke-dasharray: 960; stroke-dashoffset: 960;
+  stroke-dasharray: 900; stroke-dashoffset: 900;
   transition: stroke-dashoffset 1.8s cubic-bezier(0.5, 0, 0.2, 1) 0.15s;
 }
 .jchart.is-drawn .jc-line { stroke-dashoffset: 0; }
 .jchart.is-drawn .jc-area { opacity: 1; }
+/* The open segment past the last milestone: dashed, dimmer, and with
+   no endpoint marker — the trajectory is unfinished on purpose. It
+   fades in only after the solid line has finished drawing. */
+.jc-open {
+  fill: none;
+  stroke: var(--accent); stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 2 9;
+  opacity: 0;
+  transition: opacity 0.8s ease 1.9s;
+}
+.jc-open-lbl {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em;
+  fill: var(--accent); fill-opacity: 0.75;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.8s ease 2.1s;
+}
+.jchart.is-drawn .jc-open,
+.jchart.is-drawn .jc-open-lbl { opacity: 1; }
 .jc-pt {
   fill: var(--bg);
   stroke: var(--signal); stroke-width: 2;
@@ -363,6 +402,7 @@
 .jchart.is-drawn .jc-pt { opacity: 1; }
 .jc-pt:hover, .jc-pt:focus-visible { fill: rgba(var(--signal-rgb), 0.35); outline: none; }
 .jc-pt.is-active { fill: var(--accent); stroke: var(--fg); }
+/* The last milestone — where I am now, not a finish line. */
 .jc-pt--target { stroke: var(--accent); stroke-width: 2.5; }
 .jc-halo {
   fill: none; stroke: var(--accent); stroke-width: 1.5;
@@ -379,6 +419,15 @@
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
   fill: rgba(var(--tan-rgb), 0.8);
   pointer-events: none;
+}
+
+/* Mobile echo of the chart's open segment (shown with .jsteps ≤768). */
+.jsteps-open {
+  display: none;
+  margin-top: 12px; padding-left: 4px;
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); opacity: 0.75;
 }
 
 /* Mobile fallback: compact ascent list (chart hidden ≤768 in responsive.css). */
@@ -488,6 +537,15 @@
 .nn-output:focus-visible { outline: none; stroke: var(--signal); stroke-width: 3; }
 .nn-label-in  { font-family: var(--font-mono); font-size: 13px; fill: var(--fg); fill-opacity: 0.85; pointer-events: none; }
 .nn-label-out { font-family: var(--font-mono); font-size: 13px; fill: var(--fg); fill-opacity: 0.7; pointer-events: none; }
+/* Hidden-layer labels — SCOPE / BUILD / MEASURE / GOVERN. Smaller and
+   quieter than the input/output labels: the middle column names the
+   process, it should not compete with the skills or the work. */
+.nn-label-hid {
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.16em;
+  fill: var(--tan); fill-opacity: 0.75;
+  pointer-events: none;
+}
 .nn-tspan { fill: var(--signal); }
 
 /* Mobile fallback */
@@ -513,6 +571,23 @@
   margin-bottom: 14px;
 }
 .nn-mobile-rule { flex: 1; height: 1px; background: rgba(var(--tan-rgb), 0.2); }
+/* Mobile echo of the labelled hidden layer. */
+.nn-mprocess {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0;
+  list-style: none; margin: 0 0 34px; padding: 0;
+}
+.nn-mstep {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(var(--fg-rgb), 0.72);
+  padding: 0 16px 0 0;
+}
+.nn-mstep + .nn-mstep { padding-left: 16px; }
+.nn-mstep + .nn-mstep::before {
+  content: "→"; position: absolute; left: 0;
+  color: var(--tan); opacity: 0.6;
+}
 .nn-mobile-outs { display: flex; flex-direction: column; gap: 12px; }
 .nn-mout {
   text-align: left;
@@ -589,6 +664,68 @@
   font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase;
   line-height: 1.5; color: var(--tan);
 }
+
+/* ---------- Services ---------- */
+.services {
+  background: var(--bg);
+  padding: var(--sec-y) var(--pad-x);
+  border-top: 1px solid rgba(var(--fg-rgb), 0.07);
+}
+.svc-grid {
+  margin-top: 56px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+}
+.svc-card {
+  position: relative;
+  padding: 30px 28px 26px;
+  background: var(--panel);
+  border: 1px solid rgba(var(--fg-rgb), 0.09);
+  border-radius: 2px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.svc-card:hover { border-color: rgba(var(--signal-rgb), 0.5); transform: translateY(-3px); }
+.svc-num {
+  font-family: var(--font-mono);
+  font-size: 11.5px; letter-spacing: 0.16em;
+  color: var(--accent); margin-bottom: 16px;
+}
+.svc-title {
+  font-weight: 600; font-size: 1.28rem; line-height: 1.24;
+  letter-spacing: -0.015em; color: var(--fg); margin-bottom: 12px;
+}
+.svc-desc {
+  font-family: var(--font-body);
+  font-size: 15px; line-height: 1.62;
+  color: rgba(var(--fg-rgb), 0.72); margin-bottom: 20px;
+}
+.svc-list {
+  list-style: none; margin: 0; padding: 0;
+  border-top: 1px solid rgba(var(--fg-rgb), 0.09);
+}
+.svc-list li {
+  font-family: var(--font-mono);
+  font-size: 11.5px; letter-spacing: 0.06em;
+  color: var(--tan);
+  padding: 10px 0 0 16px; position: relative;
+}
+.svc-list li::before {
+  content: "→"; position: absolute; left: 0;
+  color: rgba(var(--fg-rgb), 0.32);
+}
+
+/* Governance strip inside Skills — deliberately quieter than the three
+   capability columns above it: kept as a differentiator, not a headline. */
+.skills-aside {
+  margin-top: 40px; padding: 22px 26px;
+  border: 1px dashed rgba(var(--fg-rgb), 0.16);
+  border-radius: 2px;
+}
+.skills-aside-label {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--tan); margin-bottom: 16px;
+}
+.skills-aside-chips { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* ---------- Projects ---------- */
 .projects {

@@ -127,6 +127,7 @@
 .nn-idle-9  { animation: nnFloat 2.6s ease-in-out 3.15s infinite; }
 .nn-idle-10 { animation: nnFloat 2.6s ease-in-out 3.50s infinite; }
 .nn-idle-11 { animation: nnFloat 2.6s ease-in-out 3.85s infinite; }
+.nn-idle-12 { animation: nnFloat 2.6s ease-in-out 4.20s infinite; }
 
 /* ============================================================
    prefers-reduced-motion — consolidated from the original inline
@@ -160,6 +161,8 @@
   [data-nn] { animation: none !important; }   /* parity with idle('') */
   .jc-line,
   .jc-area,
+  .jc-open,
+  .jc-open-lbl,
   .jc-pt { transition: none !important; }     /* trajectory chart appears drawn */
   .jc-halo { animation: none !important; }
   * { scroll-behavior: auto !important; }

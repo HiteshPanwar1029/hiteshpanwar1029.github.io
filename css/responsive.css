@@ -14,7 +14,11 @@
 /* ---- ≤1024px : tablet / small laptop ---- */
 @media (max-width: 1024px) {
   .proj-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .svc-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .gov-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  /* Four stats no longer fit on one row below the desktop width. */
+  .skills-stats { flex-wrap: wrap !important; }
+  .sk-stat { flex: 1 1 45% !important; }
 }
 
 /* ---- ≤768px : mobile (nav → hamburger, SVGs → fallbacks) ---- */
@@ -29,6 +33,7 @@
   .nn-mobile { display: block !important; }
   .jchart { display: none !important; }
   .jsteps { display: flex !important; }
+  .jsteps-open { display: block !important; }
 
   .hero-name { font-size: clamp(40px, 12vw, 72px) !important; }
   .mq { font-size: clamp(1.5rem, 8vw, 3rem) !important; }
@@ -39,6 +44,13 @@
   .sk-stat { border-right: none !important; border-bottom: 1px solid rgba(var(--fg-rgb), 0.08); }
   .sk-stat:last-child { border-bottom: none; }
   .proj-grid { grid-template-columns: 1fr !important; }
+  .svc-grid { grid-template-columns: 1fr !important; }
+  .svc-card { padding: 26px 22px 22px !important; }
+  .skills-aside { padding: 20px 18px !important; }
+  /* Role strip: bullets between items get cramped, so it stacks
+     two-up and drops the leading indent. */
+  .hero-roles { padding-left: 0 !important; gap: 6px 0 !important; }
+  .hero-role { font-size: 10.5px !important; padding: 0 10px !important; }
   .jdetail { padding: 24px 20px !important; }
   .jdetail-foot { flex-direction: column; align-items: flex-start; }
   .gov-detail { padding: 26px 22px !important; min-height: 0 !important; }
