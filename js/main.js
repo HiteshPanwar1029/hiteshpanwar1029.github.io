@@ -13,8 +13,8 @@ import { initCursorGlow } from './cursor-glow.js?v=9';
 import { initCaseStudies } from './case-studies.js?v=9';
 import { initNeuralNetwork } from './neural-network.js?v=9';
 import { initCounters } from './counters.js?v=9';
-import { initJourney } from './journey.js?v=9';
-import { initGovernance } from './governance.js?v=9';
+import { initJourney } from './journey.js?v=10';
+import { initGovernance } from './governance.js?v=10';
 import { initAnalytics } from './analytics.js?v=9';
 
 function init() {

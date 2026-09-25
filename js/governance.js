@@ -14,31 +14,31 @@
 const TIERS = [
   {
     kicker: 'TIER · PROHIBITED — ARTICLE 5',
-    title: 'Off the market. Full stop.',
+    title: 'Banned in the EU.',
     what: 'Social scoring, manipulative techniques, emotion inference at work or school, untargeted facial-image scraping. Banned from the EU regardless of safeguards.',
     chips: ['Banned outright', 'No conformity path', 'Fines up to 7% of turnover'],
-    take: 'The easiest compliance advice I will ever give: don’t. The hard part is recognising these systems before they ship.'
+    take: 'These systems are not allowed at all. The important thing is to spot them early, before anyone starts building one.'
   },
   {
     kicker: 'TIER · HIGH RISK — ANNEX III',
-    title: 'Where governance becomes engineering.',
-    what: 'CV screening, credit scoring, exam proctoring, critical infrastructure. Permitted — but only with a full control stack in place.',
+    title: 'Allowed, with strict requirements.',
+    what: 'CV screening, credit scoring, exam proctoring, critical infrastructure. Allowed, but only with a full set of controls in place.',
     chips: ['Risk management system', 'Data governance', 'Human oversight', 'Logging & conformity'],
-    take: 'This is the tier most business-critical AI lands in. It’s where the Act stops being policy and becomes an engineering problem — which is exactly where I work.'
+    take: 'Most business-critical AI falls into this level. Meeting the rules here is mostly practical work: documentation, testing, logging and human review.'
   },
   {
     kicker: 'TIER · LIMITED RISK — ARTICLE 50',
-    title: 'Just say what you are.',
-    what: 'Chatbots, deepfakes, AI-generated content. The obligation is transparency: people must know they’re interacting with — or looking at — AI.',
+    title: 'Tell people it is AI.',
+    what: 'Chatbots, deepfakes, AI-generated content. The rule is transparency: people must know when they are talking to AI or looking at AI-made content.',
     chips: ['Disclose the AI', 'Label synthetic media'],
-    take: 'Cheap to comply with, expensive to ignore. Most transparency failures are choices, not oversights.'
+    take: 'This is cheap to comply with, so there is little excuse for getting it wrong.'
   },
   {
     kicker: 'TIER · MINIMAL RISK — EVERYTHING ELSE',
-    title: 'Most AI lives here.',
+    title: 'Most AI is here.',
     what: 'Spam filters, recommendation engines, game AI. No mandatory obligations — voluntary codes of conduct apply.',
     chips: ['Voluntary codes', 'No mandatory duties'],
-    take: 'Knowing what falls here is half the triage. Governance is as much about knowing what not to escalate.'
+    take: 'No legal duties apply. Part of good governance is knowing when a system does not need extra checks.'
   }
 ];
 
@@ -122,7 +122,7 @@ const CONSENT_OUTCOMES = {
   },
   reject: {
     kicker: 'CONSENT REFUSED — EPRIVACY ART. 5(3) · GDPR ART. 7(3) & 21',
-    text: 'Good call. Non-essential cookies need opt-in consent (ePrivacy Directive Art. 5(3)), refusing must be as easy as accepting (GDPR Art. 7(3)), and you can object to profiling (Art. 21). On an average site, this click would have spared you all of the below.',
+    text: 'Non-essential cookies need opt-in consent (ePrivacy Directive Art. 5(3)), refusing must be as easy as accepting (GDPR Art. 7(3)), and you can object to profiling (Art. 21). On an average site, this click would have spared you all of the below.',
     chips: ['Ad-tracking cookies — avoided', 'Third-party analytics — avoided', 'Cross-site profiling — avoided']
   }
 };

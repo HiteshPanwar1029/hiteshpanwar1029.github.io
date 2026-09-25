@@ -39,6 +39,7 @@
   .mq { font-size: clamp(1.5rem, 8vw, 3rem) !important; }
   .about-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
   .about-quote { font-size: clamp(36px, 9vw, 72px) !important; }
+  .about-quote--plain { font-size: clamp(24px, 6.5vw, 34px) !important; }
   .skills-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
   .skills-stats { flex-direction: column !important; }
   .sk-stat { border-right: none !important; border-bottom: 1px solid rgba(var(--fg-rgb), 0.08); }

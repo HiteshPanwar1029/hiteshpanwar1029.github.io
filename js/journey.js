@@ -21,26 +21,26 @@ const PHASES = [
   {
     kicker: 'PHASE 01 · FOUNDATION — 2019–2023',
     title: 'B.Tech Computer Science — GLA University',
-    desc: 'Data structures, computer vision, AI for IIoT. Four years learning how these systems are actually built — which is why I can still open the model instead of just the slide deck about it.',
+    desc: 'Data structures and algorithms, data science and analytics, and AI for IIoT. In summer 2022 I interned at Dysmech, where I modelled telemetry from cold-chain freight units and set up 11 logistics KPIs for SLA breaches, transit delays and capacity use.',
     carry: 'Engineering fundamentals'
   },
   {
     kicker: 'PHASE 02 · APPLICATION — 2023–2025',
-    title: 'Production data science — Dysmech, Pune',
-    desc: 'Where the theory met a factory floor. Computer vision quality control on live production lines: defect escapes down 60%, client running costs down 15% ($120K+ a year). Models judged against a P&L rather than a validation set — and the lesson that a wrong model isn’t a research finding, it’s an invoice.',
-    carry: 'Shipped AI, measured in business numbers'
+    title: 'Analyst, Data Science — Dysmech, India',
+    desc: 'I worked with manufacturing and operations teams on process improvement. I built AWS data pipelines that fed sensor data into Power BI dashboards, and added anomaly detection and wear prediction models that cut client running costs by 15% ($120K+ a year). I also led a computer vision project from requirements to a live QA pipeline, which cut the defect escape rate by 60%, and trained 15+ operations staff to run the new systems.',
+    carry: 'Real operations data and real stakeholders'
   },
   {
-    kicker: 'PHASE 03 · EXPANDING THE KNOWLEDGE BASE — 2025–2026',
-    title: 'MSc Management, UCD Smurfit — and the rulebook',
-    desc: 'Deliberately widening the base rather than going deeper into one skill. Corporate finance, global strategy and business analytics at Smurfit for the commercial half of AI work; alongside it, studying the law that now governs it — the EU AI Act, GDPR and DPIA practice, working through the IAPP AIGP and CIPP/E material.',
-    carry: 'Business case + the regulatory picture'
+    kicker: 'PHASE 03 · MSC — 2025–2026',
+    title: 'MSc Management — UCD Smurfit',
+    desc: 'I did the MSc to learn the business side: supply chains, global strategy, and AI and business analytics. I came first in my class in the Littlefield operations simulation, reaching 97.4% of the maximum possible revenue, and sat on the Smurfit Case Competition Committee. Alongside the degree I studied the EU AI Act and GDPR using the IAPP AIGP and CIPP/E material.',
+    carry: 'The business side, and the rules around AI'
   },
   {
-    kicker: 'PHASE 04 · BUILDING & PRACTICE — 2026–PRESENT',
-    title: 'Shipping systems, and evaluating them daily',
-    desc: 'Everything in Projects: an agentic job-search platform with a scheduled pipeline behind it, a voice-driven presentation navigator, two offline-first learning apps. Built and run by me, not prototyped and abandoned. Running in parallel since late 2025: reviewing frontier model outputs for accuracy, bias and reasoning quality — which is how I know where LLMs actually break.',
-    carry: 'Delivery, and judgement about what to trust',
+    kicker: 'PHASE 04 · BUILDING & EVALUATING — 2026–PRESENT',
+    title: 'Building AI tools and evaluating AI models',
+    desc: 'I build my own tools with Claude Code: a job search automation, a PowerPoint add-in that changes slides by voice, and two study apps. Since late 2025 I have also been checking AI model outputs for accuracy, bias and reasoning, first at RWS Group and now at Outlier.',
+    carry: 'Hands-on experience with AI tools',
     cta: true
   }
 ];
