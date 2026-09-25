@@ -27,7 +27,7 @@ const PHASES = [
   {
     kicker: 'PHASE 02 · APPLICATION — 2023–2025',
     title: 'Production data science — Dysmech, Pune',
-    desc: 'Where the theory met a factory floor. Computer vision quality control on live production lines: defect escapes down 70%, cold-chain spoilage down 80%. Models judged against a P&L rather than a validation set — and the lesson that a wrong model isn’t a research finding, it’s an invoice.',
+    desc: 'Where the theory met a factory floor. Computer vision quality control on live production lines: defect escapes down 60%, client running costs down 15% ($120K+ a year). Models judged against a P&L rather than a validation set — and the lesson that a wrong model isn’t a research finding, it’s an invoice.',
     carry: 'Shipped AI, measured in business numbers'
   },
   {

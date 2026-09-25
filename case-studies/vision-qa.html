@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Vision QA on a Live Production Line — Case Study · Hitesh Panwar</title>
-  <meta name="description" content="Computer vision quality control deployed on running manufacturing lines at Dysmech — defect escapes down 70%, cold-chain spoilage down 80%. Production AI measured against a P&amp;L, not a validation set.">
+  <meta name="description" content="Computer vision quality control deployed on running manufacturing lines at Dysmech — defect escapes down 60%, client running costs down 15% ($120K+ a year). Production AI measured against a P&amp;L, not a validation set.">
 
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 
@@ -84,11 +84,11 @@
         </div>
         <div>
           <dt>Stack</dt>
-          <dd>Python · OpenCV · <span class="todo">[models / frameworks]</span></dd>
+          <dd>Python · OpenCV · TensorFlow · AWS</dd>
         </div>
         <div>
           <dt>Outcome</dt>
-          <dd>Defect escapes −70% · spoilage −80%</dd>
+          <dd>Defect escapes −60% · running costs −15%</dd>
         </div>
       </dl>
     </div>
@@ -123,9 +123,10 @@
           Name the number if you have it.
         </p>
         <p class="todo-block">
-          <strong>TODO —</strong> Then the second half: the cold chain. What was spoiling, where
-          in the chain, and how was it detected (or not)? Say plainly whether these were one
-          system or two — the reader will assume one unless told otherwise.
+          <strong>TODO —</strong> Then the second half: running costs. The 15% came from the
+          AWS telemetry pipeline — anomaly detection and wear prediction cutting downtime — not
+          from the vision model. Say plainly that these were two systems, or the reader will
+          assume one.
         </p>
       </div>
     </section>
@@ -184,18 +185,18 @@
           <span class="study-kicker-rule" aria-hidden="true"></span>
           <span class="study-kicker-label">What Changed</span>
         </div>
-        <h2 class="study-h2">Defect escapes down 70%. Cold-chain spoilage down 80%.</h2>
+        <h2 class="study-h2">Defect escapes down 60%. Client running costs down 15%.</h2>
         <p class="todo-block">
           <strong>TODO — the most important paragraph on this page.</strong> Both numbers need a
           baseline, a measurement window and a method, or a sceptical interviewer will discount
-          them. Down 70% <em>from what, over what period, measured how?</em> Was it your
+          them. Down 60% <em>from what, over what period, measured how?</em> Was it your
           measurement or the plant's own QA reporting? Independent verification is worth saying
           out loud.
         </p>
         <ul class="study-list">
-          <li><strong>Defect escapes −70%.</strong> <span class="todo">TODO — baseline rate → new rate, over what window.</span></li>
-          <li><strong>Cold-chain spoilage −80%.</strong> <span class="todo">TODO — same: baseline, window, method.</span></li>
-          <li><strong>Business impact.</strong> <span class="todo">TODO — the currency figure, hours saved, or throughput change, if you are free to share it. If you are not, say so rather than leaving a gap.</span></li>
+          <li><strong>Defect escapes −60%.</strong> <span class="todo">TODO — baseline rate → new rate, over what window.</span></li>
+          <li><strong>Client running costs −15%.</strong> <span class="todo">TODO — same: baseline, window, method.</span></li>
+          <li><strong>Business impact.</strong> $120K+ in annualized client savings from the running-cost reduction.</li>
         </ul>
         <p class="todo-block">
           <strong>TODO —</strong> Also worth a line: what <em>didn't</em> improve, or what the system
